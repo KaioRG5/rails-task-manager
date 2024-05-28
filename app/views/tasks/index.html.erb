@@ -1,0 +1,25 @@
+<h1>Tasks<h1>
+
+<ul>
+<% @tasks.each do |task| %>
+  <li class="card d-flex flex-row py-2 px-2">
+  <div class="inner_card">
+    <% if task.completed == true %>
+      <i class="fa-regular fa-square-check"></i>
+    <% elsif task.completed == false  %>
+      <i class="fa-regular fa-square"></i>
+    <%end%>
+
+    <%= link_to task.title, task_path(task) %>
+  </div>
+
+  <%= link_to delete_task_path(task.id),
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do
+  %>
+    <i class="fa-solid fa-trash"></i>
+    <% end %>
+  </li>
+<% end %>
+</ul>
+
+<%= link_to "Create a new task", new_task_path  %>

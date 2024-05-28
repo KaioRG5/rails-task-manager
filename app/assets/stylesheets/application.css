@@ -13,3 +13,17 @@
  *= require_tree .
  *= require_self
  */
+
+li {
+  list-style-type: none;
+  font-size: large;
+}
+
+a {
+  text-decoration: none !important;
+  font-size: medium;
+}
+
+.card{
+  justify-content: space-between !important;
+}
